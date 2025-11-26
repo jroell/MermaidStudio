@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mermaid Pro Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      /* Custom scrollbar for the editor */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+      }
+      
+      /* Mermaid Interaction Styles */
+      .node-dimmed {
+        opacity: 0.15 !important;
+        transition: opacity 0.3s ease;
+      }
+      .node-highlighted {
+        filter: drop-shadow(0 0 8px rgba(79, 70, 229, 0.6)) !important;
+        opacity: 1 !important;
+      }
+      .edge-dimmed {
+        opacity: 0.1 !important;
+        transition: opacity 0.3s ease;
+      }
+      .edge-highlighted {
+        opacity: 1 !important;
+        stroke-width: 3px !important;
+        stroke: #4F46E5 !important;
+        filter: drop-shadow(0 0 4px rgba(79, 70, 229, 0.4));
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "mermaid": "https://aistudiocdn.com/mermaid@^11.12.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-zoom-pan-pinch": "https://aistudiocdn.com/react-zoom-pan-pinch@^3.7.0",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
