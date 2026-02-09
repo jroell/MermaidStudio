@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+WARP.md
+CLAUDE.md
+AGENTS.md
