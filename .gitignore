@@ -25,3 +25,9 @@ dist-ssr
 WARP.md
 CLAUDE.md
 AGENTS.md
+
+# Local secrets and Vercel output
+.env
+.env.*
+!.env.example
+.vercel
