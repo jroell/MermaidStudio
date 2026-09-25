@@ -7,7 +7,7 @@ import EditorPanel from './components/EditorPanel';
 import DiagramCanvas from './components/DiagramCanvas';
 import { INITIAL_CODE } from './constants';
 import { ViewMode } from './types';
-import { fixMermaidCode } from './services/geminiService';
+import { AutoFixError, fixMermaidCode } from './services/geminiService';
 
 const App: React.FC = () => {
   const [code, setCode] = useState<string>(INITIAL_CODE);
@@ -43,7 +43,8 @@ const App: React.FC = () => {
         }
       }, 500);
     } catch (err) {
-      alert("Failed to auto-fix code. Please check your API key or internet connection.");
+      console.error("Auto-Fix failed:", err);
+      alert(err instanceof AutoFixError ? err.message : "Failed to auto-fix code. Please check your internet connection and try again.");
     } finally {
       setIsFixing(false);
     }
