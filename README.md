@@ -23,7 +23,7 @@ The app deploys to Vercel as a Vite static site plus one Node.js function. `verc
 - Output directory: `dist`
 - Function: `api/generate.ts`, with a 120 second maximum duration
 
-The browser never sees the Gemini key. Auto-Fix posts `{ code, errorMessage }` to `/api/generate`, and the function calls Gemini (`gemini-3-pro-preview`) with the key held on the server. Every call goes through [spend-guard](https://github.com/jroell/spend-guard). Each visitor IP gets 30 requests per hour, and calls stop for the rest of the UTC day once spend reaches a daily cap.
+The browser never sees the Gemini key. Auto-Fix posts `{ code, errorMessage }` to `/api/generate`, and the function calls Gemini (`gemini-3.1-pro-preview`) with the key held on the server. Every call goes through [spend-guard](https://github.com/jroell/spend-guard). Each visitor IP gets 30 requests per hour, and calls stop for the rest of the UTC day once spend reaches a daily cap.
 
 Set these environment variables in the Vercel project:
 

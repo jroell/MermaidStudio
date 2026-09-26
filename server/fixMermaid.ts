@@ -1,14 +1,13 @@
 import type { GenerateContentParameters, GenerateContentResponse } from '@google/genai';
 import { costUsd, type Prices, type Usage } from 'spend-guard';
 
-// Google shut down gemini-3-pro-preview on 2026-03-09 and pointed the id at
-// gemini-3.1-pro-preview (https://ai.google.dev/gemini-api/docs/changelog, "March 9, 2026"),
-// so calls bill at the Gemini 3.1 Pro Preview rate. That rate is Standard paid tier, prompts
-// <= 200k tokens: $2.00 input and $12.00 output per 1M tokens, output including thinking tokens
-// (https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview, checked 2026-09-25).
-// It matches the last published gemini-3-pro-preview rate. The input limits below keep every
-// prompt far under 200k tokens, so the higher long-prompt rate never applies.
-export const MODEL = 'gemini-3-pro-preview';
+// Google retired gemini-3-pro-preview; calls to it now return 404 "no longer available"
+// (checked live 2026-09-25). gemini-3.1-pro-preview is the replacement. Its Standard paid tier
+// rate for prompts <= 200k tokens is $2.00 input and $12.00 output per 1M tokens, with thinking
+// tokens billed as output (https://ai.google.dev/gemini-api/docs/pricing#gemini-3.1-pro-preview,
+// checked 2026-09-25). The input limits below keep every prompt far under 200k tokens, so the
+// higher long-prompt rate never applies.
+export const MODEL = 'gemini-3.1-pro-preview';
 export const PRICES: Prices = { [MODEL]: { inputPerM: 2, outputPerM: 12 } };
 
 export const MAX_CODE_CHARS = 20_000;
